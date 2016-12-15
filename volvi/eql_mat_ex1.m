@@ -43,8 +43,8 @@ function [varargout] = eql_ex1_mlp_vel
     Vs0_layers  = temp_V; clear temp_V;
     rho_layers  = temp_R; clear temp_R;
     gamma = repmat(gamma(:,1)',N_layers,1);
-    G_Gmax = ones(size(G_Gmax));
-    D = 0.0001*ones(size(G_Gmax));
+%     G_Gmax = ones(size(G_Gmax));
+%     D = 0.0001*ones(size(G_Gmax));
     xsi0_layers = 0.0001*ones(N_layers,1); 
     plot_vs_profile({H_layers},{Vs0_layers},{'$V_S$'},'Volvi','[Kg/m^3]');
     plot_vs_profile({H_layers},{rho_layers},{'$\rho_S$'},'Volvi','[Kg/m^3]');

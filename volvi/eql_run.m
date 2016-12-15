@@ -1,4 +1,4 @@
-function [varargout] = eql_ex0_run_vel(varargin)
+function [varargout] = eqlrun(varargin)
     %% *SET-UP*
     inp = varargin{1};
     mat = varargin{2};
@@ -17,17 +17,13 @@ function [varargout] = eql_ex0_run_vel(varargin)
         mat.gamma,...
         mat.D,...
         inp.tha,inp.dtm,0.65,0,...
-        sprintf('Volvi-s-motion'));
+        sprintf('argostoli-s-motion'));
     eql.vtm = inp.vtm;
     
     for i_=1:2*mat.N_layers+1
         eql.thv(i_,:) = cumtrapz(eql.tha(i_,:))*inp.dtm;
     end
     
-    srf = [eql.vtm(:),eql.thv(1,:)'];
-    bdr = [eql.vtm(:),eql.thv(end,:)'];
-    save('eql_res_strong','srf','bdr');
-
     %% *OUTPUT*
     varargout{1} = eql;
     return
